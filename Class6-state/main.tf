@@ -1,10 +1,5 @@
 provider aws {
-region = var.region
-
-}
-variable region {
-  type        = string
-  default     = ""
+region = "us-east-2"
 
 }
 
@@ -13,4 +8,8 @@ variable region {
 resource "aws_key_pair" "deployer" {
     key_name= "kaizen"
     public_key = file("~/.ssh/id_rsa.pub")
+
+  tags = {
+  Team = "Devops"
+}
 }
